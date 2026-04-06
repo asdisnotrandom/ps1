@@ -45,5 +45,5 @@ void	ft_selection(t_stx **a, t_stx **b, t_cnt *cnt)
 		pb(a, b, cnt);
 	}
 	while (*b)
-		pa(a, b, cnt);
+		pa(b, a, cnt);
 }

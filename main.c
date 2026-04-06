@@ -57,6 +57,7 @@ int main(int argc, char **argv)
 	if (argc < 2)
 		exit(1);
 	printer(&a, &b, &cnt, argv);
+	chosen_alg(&a, &b, &cnt);
 	while (a)
 	{
 		printf("%d\n", a->val);

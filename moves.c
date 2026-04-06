@@ -73,6 +73,7 @@ void	pa(t_stx **b, t_stx **a, t_cnt *cnt)
 		*a = *b;
 		*b = temp;
 		cnt->pa_cnt++;
+		cnt->a_cnt++;
 		if (cnt->bench == 0)
 			write(1, "pa\n", 4);
 	}
@@ -89,6 +90,7 @@ void	pb(t_stx **a, t_stx **b, t_cnt *cnt)
 		*b = *a;
 		*a = temp;
 		cnt->pb_cnt++;
+		cnt->a_cnt--;
 		if (cnt->bench == 0)
 			write(1, "pb\n", 4);
 	}
