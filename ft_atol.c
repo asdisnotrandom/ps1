@@ -1,5 +1,23 @@
 #include "push_swap.h"
 
+static void	ft_isdigit(const char *str, t_stx **a, char **f_input)
+{
+	int	i;
+
+	if (str == NULL)
+		free_exit(a, f_input);
+	i = 0;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	if (str[i] == '\0')
+		free_exit(a, f_input);
+	while (str[i] != '\0')
+	{
+		if (str[i] < '0' || str[i] > '9')
+			free_exit(a, f_input);
+		i++;
+	}
+}
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
@@ -31,7 +49,7 @@ size_t	ft_strlen(const char *s)
 	}
 	return (cnt);
 }
-void    is_printed(t_stx **a, int new)
+static void    is_printed(t_stx **a, int new)
 {
 	t_stx	*tmp;
 
@@ -69,22 +87,4 @@ long	ft_atol(t_stx **a, char **f_input, const char *nptr)
 		return (rst * sgn);
 		}
 	return(1);
-}
-void	ft_isdigit(const char *str, t_stx **a, char **f_input)
-{
-	int	i;
-
-	if (str == NULL)
-		free_exit(a, f_input);
-	i = 0;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	if (str[i] == '\0')
-		free_exit(a, f_input);
-	while (str[i] != '\0')
-	{
-		if (str[i] < '0' || str[i] > '9')
-			free_exit(a, f_input);
-		i++;
-	}
 }

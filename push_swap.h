@@ -8,6 +8,9 @@ typedef struct s_stx
 }					t_stx;
 typedef struct s_cnt
 {
+	int	a_cnt;
+	int	flag_w;
+	int	op;
 	int	bench;
 	int	sa_cnt;
 	int sb_cnt;
@@ -26,12 +29,10 @@ typedef struct s_cnt
 #include <stdlib.h>
 
 long	ft_atol(t_stx **a, char **f_input, const char *nptr);
-void	ft_isdigit(const char *str, t_stx **a, char **f_input);
 char	**ft_split(char const *s, char c);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlen(const char *s);
 void	ft_lstadd_back(t_stx **lst, t_stx *new);
-t_stx	*ft_lstlast(t_stx *lst);
 t_stx	*ft_lstnew(int content);
 void	sa(t_stx **a, t_cnt *cnt);
 void	sb(t_stx **b, t_cnt *cnt);
@@ -46,6 +47,8 @@ void	rrr(t_stx **a, t_stx **b, t_cnt *cnt);
 void	ft_lstclear(t_stx **lst);
 void	free_split(char **a);
 void    free_exit(t_stx **a, char **f_input);
-void    is_printed(t_stx **a, int new);
+void	detect_flag(char **argv, t_cnt *cnt);
+void	ft_selection(t_stx **a, t_stx **b, t_cnt *cnt);
+void	chosen_alg(t_stx **a, t_stx **b, t_cnt *cnt);
 
 #endif

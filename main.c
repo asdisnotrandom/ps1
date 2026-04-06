@@ -4,6 +4,9 @@ static void	null_0(t_stx**a, t_stx **b, t_cnt *cnt)
 {
 	*a = NULL;
 	*b = NULL;
+	cnt->a_cnt = 0;
+	cnt->flag_w = 0;
+	cnt->op = 6;
 	cnt->bench = 0;
 	cnt->sa_cnt = 0;
 	cnt->sb_cnt = 0;
@@ -24,7 +27,6 @@ static void	printer(t_stx **a, t_stx **b, t_cnt *cnt, char **argv)
 	int		i;
 	int		j;
 
-	null_0(a, b, cnt);
 	i = 1;
 	while (argv[i] != NULL)
 	{
@@ -33,6 +35,7 @@ static void	printer(t_stx **a, t_stx **b, t_cnt *cnt, char **argv)
 		while (f_input[j] != NULL)
 		{
 			ft_lstadd_back(a, ft_lstnew((ft_atol(a, f_input, f_input[j]))));
+			cnt->a_cnt++;
 			free(f_input[j]);
 			j++;
 		}
@@ -47,14 +50,16 @@ int main(int argc, char **argv)
 	t_stx	*b;
 	t_cnt	cnt;
 
+	null_0(&a, &b, &cnt);
+	detect_flag(argv, &cnt);
+	argc = argc - (&cnt)->flag_w;
+	argv = argv + (&cnt)->flag_w;
 	if (argc < 2)
-	{
 		exit(1);
-	}
 	printer(&a, &b, &cnt, argv);
-	while(a)
+	while (a)
 	{
-		printf("%d", a->val);
+		printf("%d\n", a->val);
 		a = a->next;
 	}
 }

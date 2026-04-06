@@ -1,5 +1,16 @@
 #include "push_swap.h"
 
+static t_stx	*ft_lstlast(t_stx *lst)
+{
+	t_stx	*a;
+
+	if (lst == 0)
+		return (0);
+	a = lst;
+	while (a->next)
+		a = a->next;
+	return (a);
+}
 t_stx	*ft_lstnew(int content)
 {
 	t_stx	*d;
@@ -26,15 +37,4 @@ void	ft_lstadd_back(t_stx **lst, t_stx *new)
 	a = ft_lstlast(*lst);
 	a->next = new;
 	new->next = 0;
-}
-t_stx	*ft_lstlast(t_stx *lst)
-{
-	t_stx	*a;
-
-	if (lst == 0)
-		return (0);
-	a = lst;
-	while (a->next)
-		a = a->next;
-	return (a);
 }
