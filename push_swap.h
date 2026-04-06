@@ -4,10 +4,13 @@
 typedef struct s_stx
 {
 	int				val;
+	int				index;
 	struct s_stx	*next;
 }					t_stx;
 typedef struct s_cnt
 {
+	int	chunk_val;
+	int	b_cnt;
 	int	a_cnt;
 	int	flag_w;
 	int	op;

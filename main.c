@@ -4,6 +4,8 @@ static void	null_0(t_stx**a, t_stx **b, t_cnt *cnt)
 {
 	*a = NULL;
 	*b = NULL;
+	cnt->chunk_val = 0;
+	cnt->b_cnt;
 	cnt->a_cnt = 0;
 	cnt->flag_w = 0;
 	cnt->op = 6;
