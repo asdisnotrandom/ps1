@@ -21,21 +21,25 @@ void	radix_sort(t_stx **a, t_stx **b, t_cnt *cnt)
 	int	max;
 	int	size;
 
-	i = 0;
-	index_param(a, cnt);
-	max = max_bit(cnt);
-	while (i < max)
+	if (cnt->a_cnt <= 5)
+		under_5(a, b, cnt);
+	else
 	{
-		size = cnt->a_cnt;
-		while (size--)
+		i = -1;
+		index_param(a, cnt);
+		max = max_bit(cnt);
+		while (++i < max)
 		{
-			if ((*a)->index >> i & 1)
-				ra(a, cnt);
-			else
-				pb(a, b, cnt);
+			size = cnt->a_cnt;
+			while (size--)
+			{
+				if ((*a)->index >> i & 1)
+					ra(a, cnt);
+				else
+					pb(a, b, cnt);
+			}
+			while (cnt->b_cnt > 0)
+				pa(b, a, cnt);
 		}
-		while (cnt->b_cnt > 0)
-			pa(b, a, cnt);
-		i++;
 	}
 }

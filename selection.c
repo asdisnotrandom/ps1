@@ -22,28 +22,84 @@ static int	find_min(t_stx *a)
 	}
 	return (move);
 }
-
-void	ft_selection(t_stx **a, t_stx **b, t_cnt *cnt)
+void	sortto_2(t_stx **a, t_cnt *cnt)
 {
-	int	move;
-	int	rra_s;
-
-	while ((*a)->next)
+	if ((*a)->val > (*a)->next->val)
+			sa(a, cnt);
+}
+void	sortto_3(t_stx **a, t_cnt *cnt)
+{
+	int	min;
+	
+	min = find_min(*a);
+	if (min == 0)
 	{
-		move = find_min(*a);
-		rra_s = cnt->a_cnt - move;
-		if ((cnt->a_cnt + 1) / 2 >= move)
+		ra(a, cnt);
+		sortto_2(a, cnt);
+		rra(a, cnt);
+	}
+	else if (min == 1)
+	{
+		rra(a, cnt);
+		sortto_2(a, cnt);
+		rra(a, cnt);
+	}
+	else if (min == 2)
+	{
+		sortto_2(a, cnt);
+		rra(a, cnt);
+	}
+}
+void sortto_5(t_stx **a, t_stx **b, t_cnt *cnt)
+{
+	int	min;
+	int	size;
+
+	size = cnt->a_cnt;
+	while (size > 3)
+	{
+		min = find_min(*a);
+		if (min <= size / 2)
 		{
-			while (move--)
+			while (min--)
 				ra(a, cnt);
 		}
 		else
 		{
-			while (rra_s--)
+			while (min++ < size)
 				rra(a, cnt);
+			pb(a, b, cnt);
 		}
-		pb(a, b, cnt);
+		size--;
 	}
-	while (*b)
+	sortto_3(a, cnt);
+	while (cnt->b_cnt > 0)
 		pa(b, a, cnt);
+}
+void	ft_selection(t_stx **a, t_stx **b, t_cnt *cnt)
+{
+	int	move;
+
+	if (cnt->a_cnt <= 5)
+		under_5(a, b, cnt);
+	else
+	{
+		while ((*a)->next)
+		{
+			move = find_min(*a);
+			if ((cnt->a_cnt + 1) / 2 >= move)
+			{
+				while (move--)
+					ra(a, cnt);
+			}
+			else
+			{
+				while (move++ < cnt->a_cnt)
+					rra(a, cnt);
+			}
+			pb(a, b, cnt);
+		}
+		while (*b)
+			pa(b, a, cnt);
+	}
 }

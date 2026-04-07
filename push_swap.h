@@ -67,5 +67,9 @@ void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_bench(t_cnt *cnt);
 int		total_move(t_cnt *stck_cnt);
+void	sortto_2(t_stx **a, t_cnt *cnt);
+void	sortto_3(t_stx **a, t_cnt *cnt);
+void 	sortto_5(t_stx **a, t_stx **b, t_cnt *cnt);
+void	under_5(t_stx **a, t_stx **b, t_cnt *cnt);
 
 #endif

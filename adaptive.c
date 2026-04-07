@@ -43,3 +43,12 @@ int	total_move(t_cnt *stck_cnt)
 	sum += stck_cnt->rrr_cnt;
 	return (sum);
 }
+void	under_5(t_stx **a, t_stx **b, t_cnt *cnt)
+{
+	if (cnt->a_cnt == 2)
+		sortto_2(a, cnt);
+	else if (cnt->a_cnt == 3)
+		sortto_3(a, cnt);
+	else if (cnt->a_cnt <= 5)
+		sortto_5(a, b , cnt);
+}

@@ -93,20 +93,25 @@ void	chunk_sort(t_stx **a, t_stx **b, t_cnt *cnt)
 	t_stx	*temp;
 	int		range;
 
-	index_param(a, cnt);
-	range = f_sqrt(cnt->a_cnt);
-	while (cnt->a_cnt > 0)
+	if (cnt->a_cnt <= 5)
+		under_5(a, b, cnt);
+	else
 	{
-		temp = *a;
-		if (temp->index < cnt->b_cnt)
-			pb(a, b, cnt);
-		else if(temp->index < cnt->b_cnt + range)
+		index_param(a, cnt);
+		range = f_sqrt(cnt->a_cnt);
+		while (cnt->a_cnt > 0)
 		{
-			pb(a, b, cnt);
-			rb(b, cnt);
+			temp = *a;
+			if (temp->index < cnt->b_cnt)
+				pb(a, b, cnt);
+			else if (temp->index < cnt->b_cnt + range)
+			{
+				pb(a, b, cnt);
+				rb(b, cnt);
+			}
+			else
+				ra(a, cnt);
 		}
-		else
-			ra(a, cnt);
+		chunk_end(a, b, cnt);
 	}
-	chunk_end(a, b, cnt);
 }
