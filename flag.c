@@ -22,13 +22,13 @@ static void	already_have(int val, t_cnt *cnt)
 	if (val > 1)
 	{
 		if (val == cnt->op || cnt->op != 6)
-			free_exit(NULL, NULL);
+			free_exit(NULL, NULL, 1);
 		cnt->op = val;
 	}
 	if (val <= 1)
 	{
 		if (val == cnt->bench)
-			free_exit(NULL, NULL);
+			free_exit(NULL, NULL, 1);
 		cnt->bench = val;
 	}
 	cnt->flag_w++;
@@ -65,8 +65,8 @@ void	detect_flag(char **argv, t_cnt *cnt)
 		while (argv[i] != NULL && i < 3)
 		{
 			sep = ft_split(argv[i], ' ');
-			if (sep == NULL)
-				free_exit(NULL, NULL);
+			if (sep == NULL || !sep[0])
+				free_exit(NULL, NULL, 1);
 			detecting(sep, cnt);
 			free(sep);
 			i++;

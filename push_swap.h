@@ -1,5 +1,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+# define INT_MAX 2147483647
+# define INT_MIN -2147483648
 
 typedef struct s_stx
 {
@@ -9,24 +11,25 @@ typedef struct s_stx
 }					t_stx;
 typedef struct s_cnt
 {
-	int	chunk_val;
-	int	b_cnt;
-	int	a_cnt;
-	int	flag_w;
-	int	op;
-	int	bench;
-	int	sa_cnt;
-	int sb_cnt;
-	int	ss_cnt;
-	int	pa_cnt;
-	int	pb_cnt;
-	int	ra_cnt;
-	int	rb_cnt;
-	int	rr_cnt;
-	int	rra_cnt;
-	int	rrb_cnt;
-	int	rrr_cnt;
-}		t_cnt;
+	float	disorder;
+	int		chunk_val;
+	int		b_cnt;
+	int		a_cnt;
+	int		flag_w;
+	int		op;
+	int		bench;
+	int		sa_cnt;
+	int 	sb_cnt;
+	int		ss_cnt;
+	int		pa_cnt;
+	int		pb_cnt;
+	int		ra_cnt;
+	int		rb_cnt;
+	int		rr_cnt;
+	int		rra_cnt;
+	int		rrb_cnt;
+	int		rrr_cnt;
+}			t_cnt;
 
 #include <unistd.h>
 #include <stdlib.h>
@@ -46,12 +49,23 @@ void    ra(t_stx **a, t_cnt *cnt);
 void    rb(t_stx **b, t_cnt *cnt);
 void	rr(t_stx **stack_a, t_stx **stack_b, t_cnt *cnt);
 void	rra(t_stx **a, t_cnt *cnt);
+void	rrb(t_stx **b, t_cnt *cnt);
 void	rrr(t_stx **a, t_stx **b, t_cnt *cnt);
 void	ft_lstclear(t_stx **lst);
 void	free_split(char **a);
-void    free_exit(t_stx **a, char **f_input);
+void    free_exit(t_stx **a, char **f_input, int err);
 void	detect_flag(char **argv, t_cnt *cnt);
 void	ft_selection(t_stx **a, t_stx **b, t_cnt *cnt);
 void	chosen_alg(t_stx **a, t_stx **b, t_cnt *cnt);
+int		find_max(t_stx **b, t_cnt *cnt);
+void	chunk_sort(t_stx **a, t_stx **b, t_cnt *cnt);
+void	index_param(t_stx **a, t_cnt *cnt);
+int		f_sqrt(int	val);
+void	radix_sort(t_stx **a, t_stx **b, t_cnt *cnt);
+void	set_disorder(t_stx **a, t_cnt *cnt);
+void	ft_putnbr_fd(int n, int fd);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_bench(t_cnt *cnt);
+int		total_move(t_cnt *stck_cnt);
 
 #endif

@@ -44,17 +44,15 @@ static void	bubble_index(int *stmp, t_cnt *cnt)
 		i++;
 	}
 }
-static int	index_param(t_stx **a, t_cnt *cnt)
+void	index_param(t_stx **a, t_cnt *cnt)
 {
 	t_stx	*temp;
 	int		*stmp;
 	int		i;
-	int		x;
 
-	x = 1;
 	stmp = (int *)malloc(cnt->a_cnt * sizeof(int));
 	if (stmp == NULL)
-		free_exit(a, NULL);
+		free_exit(a, NULL, 1);
 	i = 0;
 	temp = *a;
 	while (temp)
@@ -65,23 +63,50 @@ static int	index_param(t_stx **a, t_cnt *cnt)
 	}
 	bubble_index(stmp, cnt);
 	insert_index(stmp, a, cnt);
-	while (x * x < cnt->a_cnt)
-		x++;
 	free(stmp);
-	return(x);
+}
+static void	chunk_end(t_stx **a, t_stx **b, t_cnt *cnt)
+{
+	int		pos;
+	int		pos2;
+
+	while (cnt->b_cnt > 0)
+	{
+		pos = find_max(b, cnt);
+		pos2 = cnt->b_cnt - pos;
+		if (pos <= cnt->b_cnt / 2)
+		{
+			while (pos--)
+				rb(b, cnt);
+		}
+		else
+		{
+			while (pos2--)
+				rrb(b, cnt);
+		}
+		pa(b, a, cnt);
+	}
 }
 
 void	chunk_sort(t_stx **a, t_stx **b, t_cnt *cnt)
 {
 	t_stx	*temp;
-	int		i;
-	int		j;
 	int		range;
 
-	i = 0;
-	range = index_param(a, cnt);
-	while (cnt->a_cnt)
+	index_param(a, cnt);
+	range = f_sqrt(cnt->a_cnt);
+	while (cnt->a_cnt > 0)
 	{
-		
+		temp = *a;
+		if (temp->index < cnt->b_cnt)
+			pb(a, b, cnt);
+		else if(temp->index < cnt->b_cnt + range)
+		{
+			pb(a, b, cnt);
+			rb(b, cnt);
+		}
+		else
+			ra(a, cnt);
 	}
+	chunk_end(a, b, cnt);
 }

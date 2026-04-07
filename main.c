@@ -4,8 +4,9 @@ static void	null_0(t_stx**a, t_stx **b, t_cnt *cnt)
 {
 	*a = NULL;
 	*b = NULL;
+	cnt->disorder = 0;
 	cnt->chunk_val = 0;
-	cnt->b_cnt;
+	cnt->b_cnt = 0;
 	cnt->a_cnt = 0;
 	cnt->flag_w = 0;
 	cnt->op = 6;
@@ -33,6 +34,8 @@ static void	printer(t_stx **a, t_stx **b, t_cnt *cnt, char **argv)
 	while (argv[i] != NULL)
 	{
 		f_input = ft_split(argv[i], ' ');
+		if (!f_input && !f_input[0])
+			free_exit(a,f_input,1);
 		j = 0;
 		while (f_input[j] != NULL)
 		{
@@ -59,6 +62,9 @@ int main(int argc, char **argv)
 	if (argc < 2)
 		exit(1);
 	printer(&a, &b, &cnt, argv);
+	set_disorder(&a, &cnt);
+	if ((&cnt)->disorder == 0)
+		free_exit(&a, NULL, 0);
 	chosen_alg(&a, &b, &cnt);
 	while (a)
 	{

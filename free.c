@@ -28,7 +28,7 @@ void	free_split(char **a)
 	free(a);
 }
 
-void    free_exit(t_stx **a, char **f_input)
+void    free_exit(t_stx **a, char **f_input, int err)
 {
     int i;
 
@@ -46,6 +46,7 @@ void    free_exit(t_stx **a, char **f_input)
     {
         ft_lstclear(a);
     }
-	write(2, "Error!", 7);
-    exit(1);
+	if (err == 1)
+		write(2, "Error!", 7);
+	exit(1);
 }

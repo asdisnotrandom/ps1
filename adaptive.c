@@ -1,0 +1,45 @@
+#include "push_swap.h"
+
+void	set_disorder(t_stx **a, t_cnt *cnt)
+{
+	t_stx	*tmp1;
+	t_stx	*tmp2;
+	int		move;
+	int		mistake;
+
+	move = 0;
+	mistake = 0;
+	tmp1 = *a;
+	while (tmp1)
+	{
+		tmp2 = tmp1->next;
+		while (tmp2)
+		{
+			if (tmp1->val > tmp2->val)
+				mistake++;
+			move++;
+			tmp2 = tmp2->next;
+		}
+		tmp1 = tmp1->next;
+	}
+	if (move != 0)
+		cnt->disorder = (float)mistake / (float)move;
+}
+int	total_move(t_cnt *stck_cnt)
+{
+	int	sum;
+
+	sum = 0;
+	sum += stck_cnt->sa_cnt;
+	sum += stck_cnt->sb_cnt;
+	sum += stck_cnt->ss_cnt;
+	sum += stck_cnt->pa_cnt;
+	sum += stck_cnt->pb_cnt;
+	sum += stck_cnt->ra_cnt;
+	sum += stck_cnt->rb_cnt;
+	sum += stck_cnt->rr_cnt;
+	sum += stck_cnt->rra_cnt;
+	sum += stck_cnt->rrb_cnt;
+	sum += stck_cnt->rrr_cnt;
+	return (sum);
+}

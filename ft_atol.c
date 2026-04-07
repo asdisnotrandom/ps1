@@ -5,16 +5,16 @@ static void	ft_isdigit(const char *str, t_stx **a, char **f_input)
 	int	i;
 
 	if (str == NULL)
-		free_exit(a, f_input);
+		free_exit(a, f_input, 1);
 	i = 0;
 	if (str[i] == '-' || str[i] == '+')
 		i++;
 	if (str[i] == '\0')
-		free_exit(a, f_input);
+		free_exit(a, f_input, 1);
 	while (str[i] != '\0')
 	{
 		if (str[i] < '0' || str[i] > '9')
-			free_exit(a, f_input);
+			free_exit(a, f_input, 1);
 		i++;
 	}
 }
@@ -49,7 +49,7 @@ size_t	ft_strlen(const char *s)
 	}
 	return (cnt);
 }
-static void    is_printed(t_stx **a, int new)
+static void    is_printed(t_stx **a, char **f_input, int new)
 {
 	t_stx	*tmp;
 
@@ -57,34 +57,32 @@ static void    is_printed(t_stx **a, int new)
 	while (tmp)
 	{
 		if (tmp->val == new)
-			free_exit(a, NULL);
+			free_exit(a, f_input, 1);
 		tmp = tmp->next;
 	}
 }
-long	ft_atol(t_stx **a, char **f_input, const char *nptr)
+long    ft_atol(t_stx **a, char **f_input, const char *nptr)
 {
-	int		i;
-	int		sgn;
-	long	rst;
+    int     i;
+    int     sgn;
+    long    rst;
 
-	i = 0;
-	sgn = 1;
-	rst = 0;
-	if (nptr[i] == '+' || nptr[i] == '-')
-	{
-		if (nptr[i] == '-')
-			sgn = -sgn;
-		i++;
-	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-		rst = (rst * 10) + (nptr[i++] - '0');
-	if (rst * sgn < -2147483648 || rst * sgn > 2147483647)
-		free_exit(a, f_input);
-	else
-		{
-		ft_isdigit(nptr, a, f_input);
-		is_printed(a, rst * sgn);
-		return (rst * sgn);
-		}
-	return(1);
+    i = 0;
+    sgn = 1;
+    rst = 0;
+    if (nptr[i] == '+' || nptr[i] == '-')
+    {
+        if (nptr[i] == '-')
+            sgn = -sgn;
+        i++;
+    }
+    while (nptr[i] >= '0' && nptr[i] <= '9')
+    {
+        rst = (rst * 10) + (nptr[i++] - '0');
+        if ((sgn == 1 && rst > INT_MAX) || (sgn == -1 && rst > (long)INT_MAX + 1))
+            free_exit(a, f_input, 1);
+    }
+    ft_isdigit(nptr, a, f_input);
+    is_printed(a, f_input, rst * sgn);
+    return (rst * sgn);
 }

@@ -5,7 +5,7 @@ void	rra(t_stx **a, t_cnt *cnt)
 	t_stx	*before_last;
 	t_stx	*last;
 
-	if(*a != NULL || (*a)->next != NULL)
+	if(*a != NULL && (*a)->next != NULL)
 	{
 		last = *a;
 		before_last = *a;
@@ -26,7 +26,7 @@ static void	rra_d(t_stx **a, t_cnt *cnt)
 	t_stx	*before_last;
 	t_stx	*last;
 
-	if(*a != NULL || (*a)->next != NULL)
+	if(*a != NULL && (*a)->next != NULL)
 	{
 		last = *a;
 		before_last = *a;
@@ -45,7 +45,7 @@ void	rrb(t_stx **b, t_cnt *cnt)
 	t_stx	*before_last;
 	t_stx	*last;
 
-	if(*b != NULL || (*b)->next != NULL)
+	if(*b != NULL && (*b)->next != NULL)
 	{
 		last = *b;
 		before_last = *b;
@@ -66,7 +66,7 @@ static void	rrb_d(t_stx **b, t_cnt *cnt)
 	t_stx	*before_last;
 	t_stx	*last;
 
-	if(*b != NULL || (*b)->next != NULL)
+	if(*b != NULL && (*b)->next != NULL)
 	{
 		last = *b;
 		before_last = *b;

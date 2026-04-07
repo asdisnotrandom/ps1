@@ -2,7 +2,7 @@
 
 void	sa(t_stx **a, t_cnt *cnt)
 {
-	if (*a != NULL || (*a)->next != NULL)
+	if (*a != NULL && (*a)->next != NULL)
 	{
 		t_stx	*tmp;
 
@@ -19,7 +19,7 @@ void	sa(t_stx **a, t_cnt *cnt)
 
 void	sb(t_stx **b, t_cnt *cnt)
 {
-	if (*b != NULL || (*b)->next != NULL)
+	if (*b != NULL && (*b)->next != NULL)
 	{
 		t_stx	*tmp;
 

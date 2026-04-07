@@ -5,7 +5,7 @@ void    ra(t_stx **a, t_cnt *cnt)
     t_stx   *last;
     t_stx   *tmp;
 
-    if (*a != NULL || (*a)->next != NULL)
+    if (*a != NULL && (*a)->next != NULL)
     {
         tmp = *a;
         tmp = tmp->next;
@@ -25,7 +25,7 @@ void    rb(t_stx **b, t_cnt *cnt)
     t_stx   *last;
     t_stx   *tmp;
 
-    if (*b != NULL || (*b)->next != NULL)
+    if (*b != NULL && (*b)->next != NULL)
     {
         tmp = *b;
         tmp = tmp->next;

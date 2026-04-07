@@ -1,0 +1,41 @@
+#include "push_swap.h"
+
+static int	max_bit(t_cnt *cnt)
+{
+	int	index;
+	int	max;
+
+	max = 0;
+	index = cnt->a_cnt - 1;
+	while (index > 0)
+	{
+		index = index >> 1;
+		max++;
+	}
+	return(max);
+}
+
+void	radix_sort(t_stx **a, t_stx **b, t_cnt *cnt)
+{
+	int	i;
+	int	max;
+	int	size;
+
+	i = 0;
+	index_param(a, cnt);
+	max = max_bit(cnt);
+	while (i < max)
+	{
+		size = cnt->a_cnt;
+		while (size--)
+		{
+			if ((*a)->index >> i & 1)
+				ra(a, cnt);
+			else
+				pb(a, b, cnt);
+		}
+		while (cnt->b_cnt > 0)
+			pa(b, a, cnt);
+		i++;
+	}
+}
