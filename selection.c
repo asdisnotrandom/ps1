@@ -6,7 +6,7 @@
 /*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 03:31:17 by ademirel          #+#    #+#             */
-/*   Updated: 2026/04/08 03:32:30 by ademirel         ###   ########.fr       */
+/*   Updated: 2026/04/08 04:36:30 by ademirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,26 +43,19 @@ void	sortto_2(t_stx **a, t_cnt *cnt)
 
 void	sortto_3(t_stx **a, t_cnt *cnt)
 {
-	int	min;
+	int	first;
+	int	second;
+	int	third;
 
-	min = find_min(*a);
-	if (min == 0)
-	{
+	first = (*a)->val;
+	second = (*a)->next->val;
+	third = (*a)->next->next->val;
+	if (first > second && first > third)
 		ra(a, cnt);
-		sortto_2(a, cnt);
+	else if (second > first && second > third)
 		rra(a, cnt);
-	}
-	else if (min == 1)
-	{
-		rra(a, cnt);
-		sortto_2(a, cnt);
-		rra(a, cnt);
-	}
-	else if (min == 2)
-	{
-		sortto_2(a, cnt);
-		rra(a, cnt);
-	}
+	if ((*a)->val > (*a)->next->val)
+		sa(a, cnt);
 }
 
 void	sortto_5(t_stx **a, t_stx **b, t_cnt *cnt)
@@ -83,8 +76,8 @@ void	sortto_5(t_stx **a, t_stx **b, t_cnt *cnt)
 		{
 			while (min++ < size)
 				rra(a, cnt);
-			pb(a, b, cnt);
 		}
+		pb(a, b, cnt);
 		size--;
 	}
 	sortto_3(a, cnt);

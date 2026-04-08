@@ -6,7 +6,7 @@
 /*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 03:19:06 by ademirel          #+#    #+#             */
-/*   Updated: 2026/04/08 03:23:12 by ademirel         ###   ########.fr       */
+/*   Updated: 2026/04/08 04:17:07 by ademirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	sa(t_stx **a, t_cnt *cnt)
 		*a = tmp;
 		cnt->sa_cnt++;
 		if (cnt->bench == 0)
-			write(1, "sa\n", 4);
+			write(1, "sa\n", 3);
 	}
 }
 
@@ -42,7 +42,7 @@ void	sb(t_stx **b, t_cnt *cnt)
 		*b = tmp;
 		cnt->sb_cnt++;
 		if (cnt->bench == 0)
-			write(1, "sb\n", 4);
+			write(1, "sb\n", 3);
 	}
 }
 
@@ -90,7 +90,7 @@ void	pa(t_stx **b, t_stx **a, t_cnt *cnt)
 		cnt->a_cnt++;
 		cnt->b_cnt--;
 		if (cnt->bench == 0)
-			write(1, "pa\n", 4);
+			write(1, "pa\n", 3);
 	}
 }
 
@@ -109,6 +109,6 @@ void	pb(t_stx **a, t_stx **b, t_cnt *cnt)
 		cnt->a_cnt--;
 		cnt->b_cnt++;
 		if (cnt->bench == 0)
-			write(1, "pb\n", 4);
+			write(1, "pb\n", 3);
 	}
 }
