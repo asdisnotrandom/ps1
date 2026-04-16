@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
+/*   By: ademirel <ademirel@student.42istanbul.com.tr>+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 03:18:48 by ademirel          #+#    #+#             */
-/*   Updated: 2026/04/08 03:18:49 by ademirel         ###   ########.fr       */
+/*   Updated: 2026/04/16 18:55:52 by ademirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	main(int argc, char **argv)
 	argc = argc - (&cnt)->flag_w;
 	argv = argv + (&cnt)->flag_w;
 	if (argc < 2)
-		exit(1);
+		exit(0);
 	printer(&a, &cnt, argv);
 	set_disorder(&a, &cnt);
 	if ((&cnt)->dr == 0)

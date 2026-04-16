@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flag.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
+/*   By: ademirel <ademirel@student.42istanbul.com.tr>+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 03:08:28 by ademirel          #+#    #+#             */
-/*   Updated: 2026/04/08 03:09:38 by ademirel         ###   ########.fr       */
+/*   Updated: 2026/04/16 18:45:53 by ademirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static void	detecting(char **sep, t_cnt *cnt)
 	int	j;
 
 	j = 0;
-	while (sep[j] != NULL)
+	while (sep[j] != NULL && j < 2)
 	{
 		if (ft_strncmp(sep[j], "--bench", 8) == 0)
 			already_have(1, cnt, sep);
@@ -81,6 +81,8 @@ void	detect_flag(char **argv, t_cnt *cnt)
 		if (sep[0] == NULL)
 			free_exit(NULL, sep, 1);
 		detecting(sep, cnt);
+		if (sep[1] != NULL)
+			cnt->flag_w = 1;
 		free_split(sep);
 		i++;
 	}

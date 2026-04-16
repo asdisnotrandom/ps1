@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
+/*   By: ademirel <ademirel@student.42istanbul.com.tr>+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 03:11:02 by ademirel          #+#    #+#             */
-/*   Updated: 2026/04/08 03:12:18 by ademirel         ###   ########.fr       */
+/*   Updated: 2026/04/16 18:58:37 by ademirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,5 @@ void	free_exit(t_stx **a, char **f_input, int err)
 		ft_lstclear(a);
 	if (err == 1)
 		write(2, "Error\n", 6);
-	exit(1);
+	exit(err);
 }
