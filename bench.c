@@ -6,7 +6,7 @@
 /*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 02:59:43 by ademirel          #+#    #+#             */
-/*   Updated: 2026/04/08 03:03:53 by ademirel         ###   ########.fr       */
+/*   Updated: 2026/04/16 11:25:51 by ademirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	print_algo(t_cnt *cnt)
 	if (cnt->op == 2)
 		ft_putstr_fd("[bench] strategy: Simple / O(n²)\n", 2);
 	else if (cnt->op == 3)
-		ft_putstr_fd("[bench] strategy: Medium / O(n√n\n", 2);
+		ft_putstr_fd("[bench] strategy: Medium / O(n√n)\n", 2);
 	else if (cnt->op == 4)
 		ft_putstr_fd("[bench] strategy: Complex / O(nlogn)\n", 2);
 	else if ((cnt->op == 5 || cnt->op == 6) && cnt->dr < 0.2)
