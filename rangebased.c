@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   chunkbased.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
+/*   By: ademirel <ademirel@student.42istanbul.com.tr>+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 03:06:41 by ademirel          #+#    #+#             */
-/*   Updated: 2026/04/08 03:06:57 by ademirel         ###   ########.fr       */
+/*   Updated: 2026/04/16 16:21:53 by ademirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	index_param(t_stx **a, t_cnt *cnt)
 	free(stmp);
 }
 
-static void	chunk_end(t_stx **a, t_stx **b, t_cnt *cnt)
+static void	range_end(t_stx **a, t_stx **b, t_cnt *cnt)
 {
 	int		pos;
 	int		pos2;
@@ -103,7 +103,7 @@ static void	chunk_end(t_stx **a, t_stx **b, t_cnt *cnt)
 	}
 }
 
-void	chunk_sort(t_stx **a, t_stx **b, t_cnt *cnt)
+void	range_sort(t_stx **a, t_stx **b, t_cnt *cnt)
 {
 	t_stx	*temp;
 	int		range;
@@ -127,6 +127,6 @@ void	chunk_sort(t_stx **a, t_stx **b, t_cnt *cnt)
 			else
 				ra(a, cnt);
 		}
-		chunk_end(a, b, cnt);
+		range_end(a, b, cnt);
 	}
 }

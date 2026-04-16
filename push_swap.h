@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ademirel <ademirel@student.42istanbul.com.tr> + +:+       +#+        */
+/*   By: ademirel <ademirel@student.42istanbul.com.tr>+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 03:33:00 by ademirel          #+#    #+#             */
-/*   Updated: 2026/04/08 03:37:24 by ademirel         ###   ########.fr       */
+/*   Updated: 2026/04/16 16:23:02 by ademirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	detect_flag(char **argv, t_cnt *cnt);
 void	ft_selection(t_stx **a, t_stx **b, t_cnt *cnt);
 void	chosen_alg(t_stx **a, t_stx **b, t_cnt *cnt);
 int		find_max(t_stx **b, t_cnt *cnt);
-void	chunk_sort(t_stx **a, t_stx **b, t_cnt *cnt);
+void	range_sort(t_stx **a, t_stx **b, t_cnt *cnt);
 void	index_param(t_stx **a, t_cnt *cnt);
 int		f_sqrt(int val);
 void	radix_sort(t_stx **a, t_stx **b, t_cnt *cnt);
