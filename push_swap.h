@@ -6,7 +6,7 @@
 /*   By: ademirel <ademirel@student.42istanbul.com.tr>+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 03:33:00 by ademirel          #+#    #+#             */
-/*   Updated: 2026/04/16 16:23:02 by ademirel         ###   ########.fr       */
+/*   Updated: 2026/04/28 16:48:18 by ademirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ typedef struct s_stx
 typedef struct s_cnt
 {
 	float	dr;
-	int		chunk_val;
 	int		b_cnt;
 	int		a_cnt;
 	int		flag_w;

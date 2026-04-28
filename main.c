@@ -6,7 +6,7 @@
 /*   By: ademirel <ademirel@student.42istanbul.com.tr>+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 03:18:48 by ademirel          #+#    #+#             */
-/*   Updated: 2026/04/16 18:55:52 by ademirel         ###   ########.fr       */
+/*   Updated: 2026/04/28 16:48:24 by ademirel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ static void	null_0(t_stx**a, t_stx **b, t_cnt *cnt)
 	*a = NULL;
 	*b = NULL;
 	cnt->dr = 0;
-	cnt->chunk_val = 0;
 	cnt->b_cnt = 0;
 	cnt->a_cnt = 0;
 	cnt->flag_w = 0;
